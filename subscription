@@ -1,0 +1,124 @@
+// App Configuration and Types
+
+// Subscription Tiers
+export enum SubscriptionTier {
+  FREE = 'free',
+  BASIC = 'basic',
+  PREMIUM = 'premium',
+  ULTIMATE = 'ultimate'
+}
+
+// Feature Access Configuration
+export interface FeatureAccess {
+  [key: string]: {
+    [tier in SubscriptionTier]: boolean;
+  };
+}
+
+export const featureAccessConfig: FeatureAccess = {
+  personalizedWorkouts: {
+    free: true,
+    basic: true,
+    premium: true,
+    ultimate: true
+  },
+  advancedAIRecommendations: {
+    free: false,
+    basic: false,
+    premium: true,
+    ultimate: true
+  },
+  teletherapySessions: {
+    free: false,
+    basic: false,
+    premium: false,
+    ultimate: true
+  },
+  communityFeatures: {
+    free: true,
+    basic: true,
+    premium: true,
+    ultimate: true
+  }
+};
+
+// Pricing Configuration
+export const subscriptionPricing = {
+  [SubscriptionTier.FREE]: {
+    price: 0,
+    features: ['Basic health tracking', 'Standard workout plans']
+  },
+  [SubscriptionTier.BASIC]: {
+    price: 9.99,
+    features: [
+      'Personalized workout recommendations',
+      'Basic nutrition guidance',
+      'Limited community access'
+    ]
+  },
+  [SubscriptionTier.PREMIUM]: {
+    price: 19.99,
+    features: [
+      'Advanced AI health insights',
+      'Comprehensive nutrition planning',
+      'Full community features',
+      'Priority support'
+    ]
+  },
+  [SubscriptionTier.ULTIMATE]: {
+    price: 49.99,
+    features: [
+      'Unlimited teletherapy sessions',
+      'Personal health coach',
+      'Most advanced AI recommendations',
+      'Exclusive masterclasses',
+      'Priority support'
+    ]
+  }
+};
+
+// Machine Learning Model Configuration
+export interface AIModelConfig {
+  recommendationConfidence: number;
+  personalizedFactors: string[];
+  continuousLearningEnabled: boolean;
+}
+
+export const aiModelConfig: AIModelConfig = {
+  recommendationConfidence: 0.85,
+  personalizedFactors: [
+    'age',
+    'fitness_level',
+    'health_goals',
+    'medical_history',
+    'sleep_patterns',
+    'stress_levels',
+    'dietary_preferences'
+  ],
+  continuousLearningEnabled: true
+};
+
+// Sample Integration with Wearable Devices
+export interface WearableIntegration {
+  supportedDevices: string[];
+  dataPoints: string[];
+}
+
+export const wearableConfig: WearableIntegration = {
+  supportedDevices: [
+    'Apple Watch',
+    'Fitbit',
+    'Garmin',
+    'Whoop',
+    'Oura Ring'
+  ],
+  dataPoints: [
+    'heart_rate',
+    'steps',
+    'sleep_quality',
+    'calories_burned',
+    'recovery_time',
+    'blood_oxygen_level'
+  ]
+};
+Last edited 48 minutes ago
